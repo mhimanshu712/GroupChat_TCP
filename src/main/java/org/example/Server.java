@@ -29,7 +29,13 @@ public class Server {
                 }
             }
         }
+    }
 
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(5050);
+        Server server = new Server(serverSocket);
+        server.startServer();
 
+        System.out.println("Hello world!");
     }
 }
