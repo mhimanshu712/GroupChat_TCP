@@ -72,14 +72,4 @@ public class Client {
             closeConnection();
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your UserName: ");
-        String userName = scanner.nextLine();
-        Socket socket1 = new Socket("localhost",5050);
-        Client client = new Client(socket1,userName);
-        client.handleIncomingMessage();
-        client.handleOutgoingMessage();
-    }
 }

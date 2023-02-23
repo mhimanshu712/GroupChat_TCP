@@ -31,7 +31,7 @@ public class ClientHandler extends Thread {
         try {
             while(!socket.isClosed()) {
                 String messageFromClient = bufferedReader.readLine();
-                broadCastMessage(messageFromClient);
+                broadCastMessage(this.clientUserName + ": " +messageFromClient);
             }
 
         }catch (Exception ex) {
@@ -56,7 +56,7 @@ public class ClientHandler extends Thread {
             for(ClientHandler currentHandler : allClients) {
 
                 if(currentHandler.clientUserName != this.clientUserName) {
-                    currentHandler.bufferedWriter.write(this.clientUserName + ": "+ message);
+                    currentHandler.bufferedWriter.write(message);
                     currentHandler.bufferedWriter.newLine();
                     currentHandler.bufferedWriter.flush();
                 }
